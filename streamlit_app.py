@@ -112,3 +112,14 @@ with tab4:
 with tab5:
 
     render_advisor_tab(df)
+st.markdown("""
+<hr>
+
+<center>
+
+AI Restaurant Intelligence Platform <br>
+Built with Streamlit, NLP, Recommendation Systems,
+Geo Intelligence, and Google Places API.
+
+</center>
+""", unsafe_allow_html=True)
