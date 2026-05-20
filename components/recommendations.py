@@ -107,17 +107,62 @@ def render_recommendations_tab(df):
     st.subheader("🔍 Discover Similar Restaurants")
 
     similarity_df = df.reset_index(drop=True)
+    # ==================================================
+# SAFE FEATURE ENGINEERING
+# ==================================================
+
+    similarity_df['main_category'] = (
+    similarity_df['main_category']
+    .fillna("Unknown")
+    .astype(str)
+    )
+
+    similarity_df['city'] = (
+    similarity_df['city']
+    .fillna("Unknown")
+    .astype(str)
+    )
+
+    # Optional columns safety
+
+    if 'delivery' not in similarity_df.columns:
+
+        similarity_df['delivery'] = "Unknown"
+
+    if 'wifi' not in similarity_df.columns:
+
+        similarity_df['wifi'] = "Unknown"
+
+    similarity_df['delivery'] = (
+    similarity_df['delivery']
+    .fillna("Unknown")
+    .astype(str)
+    )
+
+    similarity_df['wifi'] = (
+    similarity_df['wifi']
+    .fillna("Unknown")
+    .astype(str)
+    )
+
+    # FINAL COMBINED FEATURES
 
     similarity_df['combined_features'] = (
 
-        similarity_df['main_category'].astype(str)
-        + " "
-        + similarity_df['city'].astype(str)
-        + " "
-        + similarity_df['delivery'].astype(str)
-        + " "
-        + similarity_df['wifi'].astype(str)
+    similarity_df['main_category']
+    + " "
+    + similarity_df['city']
+    + " "
+    + similarity_df['delivery']
+    + " "
+    + similarity_df['wifi']
 
+    )   
+
+    # FINAL SAFETY
+
+    similarity_df = similarity_df.dropna(
+    subset=['combined_features']
     )
 
     tfidf = TfidfVectorizer()
