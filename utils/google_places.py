@@ -1,7 +1,9 @@
 import requests
+import os
 
-
-API_KEY = "AIzaSyBgbZypHzyFuId8ItDetv0PyPBU6cSWAH4"
+API_KEY = os.getenv(
+    "AIzaSyBgbZypHzyFuId8ItDetv0PyPBU6cSWAH4"
+)
 
 
 def get_restaurants(location):
