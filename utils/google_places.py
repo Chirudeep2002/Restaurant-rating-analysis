@@ -1,8 +1,9 @@
 import requests
 import os
 
+
 API_KEY = os.getenv(
-    "AIzaSyBgbZypHzyFuId8ItDetv0PyPBU6cSWAH4"
+    "GOOGLE_API_KEY"
 )
 
 
