@@ -1,6 +1,13 @@
 import streamlit as st
 import plotly.express as px
 
+if df.empty:
+
+    st.warning(
+        "No data available."
+    )
+
+    return
 
 def render_analytics_tab(
     filtered_df,

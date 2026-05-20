@@ -61,17 +61,20 @@ def render_advisor_tab(df):
     # GOOGLE PLACES API
     # ==================================================
 
-    restaurants = get_restaurants(
+    with st.spinner(
+    "Finding the best restaurants..."):
+
+        restaurants = get_restaurants(
         advisor_city
-    )
+        )
 
-    if not restaurants:
+        if not restaurants:
 
-        st.warning(
+            st.warning(
             "No restaurants found for this location."
         )
 
-        st.stop()
+            st.stop()
 
     # ==================================================
     # EXTRACT RESTAURANT DATA

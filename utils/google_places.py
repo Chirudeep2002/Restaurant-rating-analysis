@@ -1,12 +1,12 @@
 import requests
 import os
-
+import streamlit as st
 
 API_KEY = os.getenv(
     "GOOGLE_API_KEY"
 )
 
-
+@st.cache_data(ttl=3600)
 def get_restaurants(location):
 
     url = (
@@ -18,11 +18,20 @@ def get_restaurants(location):
         "key": API_KEY
     }
 
-    response = requests.get(
+    try:
+
+        response = requests.get(
         url,
-        params=params
+        params=params,
+        timeout=10
     )
 
-    data = response.json()
+        response.raise_for_status()
 
-    return data.get("results", [])
+        data = response.json()
+
+        return data.get("results", [])
+
+    except Exception:
+
+        return []
