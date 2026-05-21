@@ -9,8 +9,9 @@ An AI-powered restaurant analytics and recommendation platform built using Strea
 🔗 https://restaurant-rating.streamlit.app/
 
 ---
-# For the Dataset please visit the yelp website and download the raw dataset 
-# You can download the dataset from the given link https://business.yelp.com/data/resources/open-dataset/?utm_source=chatgpt.com
+# Dataset
+For the Dataset please visit the yelp website and download the raw dataset 
+You can download the dataset from the given link https://business.yelp.com/data/resources/open-dataset/?utm_source=chatgpt.com
 
 # 📌 Features
 
