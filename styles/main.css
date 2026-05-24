@@ -40,11 +40,35 @@ body,
 
 /* HEADINGS */
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4,
+[data-testid="stMarkdownContainer"] h5,
+[data-testid="stMarkdownContainer"] h6 {
 
-    color: white !important;
+    color: #FFFFFF !important;
 
     font-weight: 700 !important;
+
+    opacity: 1 !important;
+
+    text-shadow: 0px 0px 8px rgba(255,255,255,0.15);
+
+}
+
+/* PARAGRAPHS & TEXT */
+
+p,
+span,
+div,
+.stMarkdown,
+[data-testid="stMetricLabel"],
+[data-testid="stMetricValue"] {
+
+    color: #E5E7EB !important;
+
 }
 
 
@@ -57,12 +81,15 @@ label {
     font-weight: 600 !important;
 }
 
+.main {
 
-/* PARAGRAPHS */
+    background: linear-gradient(
+        135deg,
+        #020617 0%,
+        #071133 45%,
+        #0F172A 100%
+    );
 
-p {
-
-    color: #cbd5e1 !important;
 }
 
 
