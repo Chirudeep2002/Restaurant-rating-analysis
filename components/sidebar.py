@@ -12,14 +12,26 @@ def render_sidebar(df):
 
     st.sidebar.header("Filters")
 
+    st.sidebar.markdown(
+    "<h3 style='color:white;'>Select City</h3>",
+    unsafe_allow_html=True
+)
+
     selected_city = st.sidebar.selectbox(
-        "Select City",
-        ["All"] + sorted(df['city'].dropna().unique())
+    "",
+    ["All"] + sorted(df['city'].dropna().unique()),
+    key="city_select"
+)
+
+    st.sidebar.markdown(
+    "<h3 style='color:white;'>Select Cuisine</h3>",
+    unsafe_allow_html=True
     )
 
     selected_cuisine = st.sidebar.selectbox(
-        "Select Cuisine",
-        ["All"] + sorted(df['main_category'].dropna().unique())
+    "",
+    ["All"] + sorted(df['main_category'].dropna().unique()),
+    key="cuisine_select"
     )
 
     min_rating_filter = st.sidebar.slider(
