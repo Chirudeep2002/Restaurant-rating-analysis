@@ -1,3 +1,5 @@
+from turtle import pd
+import pandas as pd
 import streamlit as st
 import plotly.express as px
 
@@ -5,7 +7,9 @@ def render_analytics_tab(
     filtered_df,
     reviews_df
 ):
-    
+    if filtered_df.empty:
+        st.warning("No restaurants found for selected filters.")
+        return
 
     st.header("📊 Executive Restaurant Intelligence")
 
@@ -31,10 +35,14 @@ def render_analytics_tab(
 
     with col2:
 
-        st.metric(
-            "Avg Rating",
-            round(filtered_df['stars'].mean(), 2)
-        )
+        avg_reviews = filtered_df['review_count'].mean()
+
+        if pd.isna(avg_reviews):
+            avg_reviews = 0
+        else:
+            avg_reviews = int(avg_reviews)
+
+        st.metric("Average Reviews",avg_reviews)
 
     with col3:
 
@@ -114,8 +122,19 @@ def render_analytics_tab(
     # TOP CUISINE CHART
     # --------------------------------------------------
 
-    top_cuisines = (
+    if filtered_df.empty:
+
+        st.warning("No cuisine data available for selected filters.")
+
+        top_cuisines = pd.DataFrame(
+        columns=['main_category', 'count']
+        )
+
+    else:
+
+        top_cuisines = (
         filtered_df['main_category']
+        .dropna()
         .value_counts()
         .head(10)
         .reset_index()
