@@ -1,653 +1,177 @@
-/* =====================================================
-MAIN APP
-===================================================== */
+/* =========================================================
+GLOBAL APP
+========================================================= */
+
 :root {
+    --bg-primary: #020617;
+    --bg-secondary: #0f172a;
+    --bg-card: rgba(15,23,42,0.78);
 
-    --text-color: white;
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --text-muted: #94a3b8;
 
+    --accent: #38bdf8;
+    --accent-2: #2563eb;
+
+    --border: rgba(255,255,255,0.08);
 }
+
+/* =========================================================
+MAIN APP
+========================================================= */
+
 .stApp {
-
-    background: linear-gradient(
-        135deg,
-        #020617,
-        #0f172a,
-        #111827
-    );
-
-    color: #f8fafc;
-}
-#MainMenu {
-    visibility: hidden;
-}
-
-footer {
-    visibility: hidden;
-}
-
-header {
-    visibility: hidden;
-}
-
-
-/* =====================================================
-GLOBAL TEXT
-===================================================== */
-
-html,
-body,
-[class*="css"] {
-
-    color: #f8fafc;
-}
-
-
-/* HEADINGS */
-
-h1, h2, h3, h4, h5, h6,
-[data-testid="stMarkdownContainer"] h1,
-[data-testid="stMarkdownContainer"] h2,
-[data-testid="stMarkdownContainer"] h3,
-[data-testid="stMarkdownContainer"] h4,
-[data-testid="stMarkdownContainer"] h5,
-[data-testid="stMarkdownContainer"] h6 {
-
-    color: #FFFFFF !important;
-
-    font-weight: 700 !important;
-
-    opacity: 1 !important;
-
-    text-shadow: 0px 0px 8px rgba(255,255,255,0.15);
-
-}
-
-/* PARAGRAPHS & TEXT */
-
-p,
-span,
-div,
-.stMarkdown,
-[data-testid="stMetricLabel"],
-[data-testid="stMetricValue"] {
-
-    color: #E5E7EB !important;
-
-}
-
-
-/* LABELS */
-
-label {
-
-    color: #f8fafc !important;
-
-    font-weight: 600 !important;
-}
-
-.main {
 
     background: linear-gradient(
         135deg,
         #020617 0%,
         #071133 45%,
-        #0F172A 100%
+        #0f172a 100%
     );
 
+    color: var(--text-primary);
 }
 
-[data-testid="metric-container"] {
-
-    background: rgba(255,255,255,0.05);
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 16px;
-
-    padding: 18px;
-
-    backdrop-filter: blur(10px);
-
+#MainMenu,
+header,
+footer {
+    visibility: hidden;
 }
 
+/* =========================================================
+GLOBAL TEXT
+========================================================= */
 
-/* =====================================================
+html,
+body,
+p {
+
+    color: var(--text-secondary);
+}
+/* =========================================================
+HEADINGS
+========================================================= */
+
+h1, h2, h3, h4, h5, h6,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3 {
+
+    color: white !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: -0.5px;
+
+    opacity: 1 !important;
+}
+
+/* =========================================================
+LABELS
+========================================================= */
+
+label,
+.stMarkdown,
+[data-testid="stMetricLabel"] {
+
+    color: #f8fafc !important;
+
+    font-weight: 600 !important;
+
+    opacity: 1 !important;
+}
+
+/* =========================================================
 SIDEBAR
-===================================================== */
-
-/* SIDEBAR FULL FIX */
+========================================================= */
 
 section[data-testid="stSidebar"] {
 
-    background: #020B1F !important;
+    background: #020b1f !important;
 
+    border-right: 1px solid rgba(255,255,255,0.05);
 }
 
-/* FILTER TITLES */
-
-section[data-testid="stSidebar"] label {
-
-    color: white !important;
-
-    font-size: 20px !important;
-
-    font-weight: 700 !important;
-
-    opacity: 1 !important;
-
-}
-
-/* SELECTBOX TEXT */
-
-section[data-testid="stSidebar"] .stSelectbox div {
-
-    color: black !important;
-
-    font-size: 18px !important;
-
-    font-weight: 500 !important;
-
-}
-
-/* DROPDOWN BOX */
-
-section[data-testid="stSidebar"] .stSelectbox > div > div {
-
-    background-color: white !important;
-
-    border-radius: 15px !important;
-
-
-}
-
-/* SLIDER LABEL */
-
-section[data-testid="stSidebar"] .stSlider label {
-
-    color: white !important;
-
-}
-
-/* MAIN FILTER HEADING */
+/* SIDEBAR TITLES */
 
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
 section[data-testid="stSidebar"] h3 {
 
     color: white !important;
-
 }
 
-/* FORCE SIDEBAR LABEL VISIBILITY */
-
-section[data-testid="stSidebar"] * {
-
-    opacity: 1 !important;
-
-}
-
-/* FORCE LABEL COLORS */
-
-section[data-testid="stSidebar"] label,
-section[data-testid="stSidebar"] p,
-section[data-testid="stSidebar"] span,
-section[data-testid="stSidebar"] div {
-
-    color: white !important;
-
-}
-
-/* SPECIFIC SELECTBOX LABEL FIX */
-
-div[data-testid="stSelectbox"] label {
-
-    color: white !important;
-
-    opacity: 1 !important;
-
-    visibility: visible !important;
-
-    display: block !important;
-
-}
-
-/* FILTER LABEL COLOR FIX */
-
-div[data-testid="stSelectbox"] label {
-
-    color: #FFFFFF !important;
-
-    font-size: 22px !important;
-
-    font-weight: 700 !important;
-
-}
-/* FORCE FILTER LABEL COLORS */
-
-[data-testid="stSidebar"] .stSelectbox label div,
-[data-testid="stSidebar"] .stSlider label div {
-
-    color: #FFFFFF !important;
-
-    opacity: 1 !important;
-
-    font-size: 24px !important;
-
-    font-weight: 700 !important;
-
-}
-/* TARGET INNER LABEL TEXT */
-
-[data-testid="stSidebar"] label p {
-
-    color: #FFFFFF !important;
-
-    opacity: 1 !important;
-
-}
-/* =====================================================
-KPI METRIC CARDS
-===================================================== */
-
-div[data-testid="metric-container"] {
-
-    background: linear-gradient(
-        145deg,
-        #ffffff,
-        #f8fafc
-    ) !important;
-
-    border-radius: 20px !important;
-
-    padding: 22px 24px !important;
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.28);
-
-    position: relative;
-
-    overflow: hidden;
-
-    transition: all 0.3s ease;
-
-    min-height: 140px;
-}
-
-
-/* LEFT ACCENT BAR */
-
-div[data-testid="metric-container"]::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-
-    width: 6px;
-
-    height: 100%;
-
-    background: linear-gradient(
-        180deg,
-        #06b6d4,
-        #2563eb
-    );
-}
-
-
-/* HOVER */
-
-div[data-testid="metric-container"]:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,0.35);
-}
-
-
-/* =====================================================
-FORCE LABEL VISIBILITY
-===================================================== */
-
-div[data-testid="metric-container"] label,
-div[data-testid="metric-container"] p,
-div[data-testid="metric-container"] span {
-
-    color: #64748b !important;
-
-    opacity: 1 !important;
-
-    font-size: 18px !important;
-
-    font-weight: 700 !important;
-}
-
-
-/* =====================================================
-FORCE VALUE VISIBILITY
-===================================================== */
-
-div[data-testid="metric-container"] [data-testid="stMetricValue"] {
-
-    color: #0f172a !important;
-
-    opacity: 1 !important;
-
-    font-size: 54px !important;
-
-    font-weight: 800 !important;
-
-    line-height: 1 !important;
-}
-
-
-/* TARGET INNER VALUE DIV */
-
-div[data-testid="metric-container"] > div {
-
-    color: #0f172a !important;
-
-    opacity: 1 !important;
-}
-
-
-/* REMOVE STREAMLIT FADED EFFECT */
-
-div[data-testid="metric-container"] * {
-
-    opacity: 1 !important;
-}
-/* =====================================================
-CHART CONTAINERS
-===================================================== */
-
-.chart-card {
-
-    background: rgba(15,23,42,0.75);
-
-    border: 1px solid rgba(255,255,255,0.06);
-
-    border-radius: 24px;
-
-    padding: 18px;
-
-    margin-top: 20px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.25);
-
-    backdrop-filter: blur(12px);
-
-    transition: all 0.3s ease;
-}
-
-
-/* HOVER EFFECT */
-
-.chart-card:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 16px 36px rgba(0,0,0,0.35);
-}
-
-            /* =====================================================
-PREMIUM RESTAURANT CARDS
-===================================================== */
-
-.restaurant-card {
-
-    background: linear-gradient(
-        145deg,
-        rgba(15,23,42,0.92),
-        rgba(30,41,59,0.88)
-    );
-
-    border: 1px solid rgba(255,255,255,0.06);
-
-    border-radius: 24px;
-
-    padding: 18px;
-
-    margin-bottom: 20px;
-
-    transition: all 0.3s ease;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.28);
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-/* HOVER */
-
-.restaurant-card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 18px 42px rgba(0,0,0,0.40);
-}
-
-
-/* GLOW ACCENT */
-
-.restaurant-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 4px;
-
-    background: linear-gradient(
-        90deg,
-        #06b6d4,
-        #2563eb,
-        #8b5cf6
-    );
-}
-
-
-/* RESTAURANT TITLE */
-
-.restaurant-title {
-
-    font-size: 28px;
-
-    font-weight: 700;
-
-    color: white;
-
-    margin-bottom: 14px;
-}
-
-
-/* BADGE CONTAINER */
-
-.badge-container {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 16px;
-
-    margin-bottom: 16px;
-}
-
-
-/* CUISINE BADGE */
-
-.cuisine-badge {
-
-    background: rgba(59,130,246,0.15);
-
-    color: #dbeafe;
-
-    padding: 8px 16px;
-
-    border-radius: 999px;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    border: 1px solid rgba(96,165,250,0.25);
-}
-
-
-/* RATING BADGE */
-
-.rating-badge {
-
-    background: rgba(16,185,129,0.15);
-
-    color: #d1fae5;
-
-    padding: 8px 16px;
-
-    border-radius: 999px;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    border: 1px solid rgba(52,211,153,0.25);
-}
-
-
-/* REVIEW BADGE */
-
-.review-badge {
-
-    background: rgba(245,158,11,0.15);
-
-    color: #fde68a;
-
-    padding: 8px 16px;
-
-    border-radius: 999px;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    border: 1px solid rgba(251,191,36,0.25);
-}
-
-
-/* LOCATION BADGE */
-
-.location-badge {
-
-    background: rgba(139,92,246,0.15);
-
-    color: #e9d5ff;
-
-    padding: 8px 16px;
-
-    border-radius: 999px;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    border: 1px solid rgba(167,139,250,0.25);
-}
-
-
-/* AI INSIGHT */
-
-.ai-insight {
-
-    margin-top: 18px;
-
-    padding: 16px;
-
-    border-radius: 16px;
-
-    background: rgba(59,130,246,0.12);
-
-    color: #dbeafe;
-
-    line-height: 1.8;
-
-    border: 1px solid rgba(96,165,250,0.18);
-}
-
-
-/* =====================================================
-SELECTBOX
-===================================================== */
+/* =========================================================
+SELECTBOXES
+========================================================= */
+
+/* OUTER SELECTBOX */
 
 .stSelectbox div[data-baseweb="select"] {
 
-    background: white !important;
+    background: #f8fafc !important;
 
     border: 2px solid #334155 !important;
 
-    border-radius: 12px !important;
+    border-radius: 14px !important;
 
-    min-height: 52px !important;
+    min-height: 46px !important;
+
+    height: 46px !important;
+
+    padding-left: 6px !important;
 
     display: flex !important;
 
     align-items: center !important;
 
-    padding: 0 12px !important;
+    box-shadow: none !important;
 }
 
+/* INNER VALUE CONTAINER */
 
-/* SELECTED TEXT */
-
-.stSelectbox span {
+.stSelectbox div[data-baseweb="select"] > div {
 
     color: #0f172a !important;
-
-    font-size: 16px !important;
-
-    font-weight: 600 !important;
 
     opacity: 1 !important;
 }
 
+/* SELECTED TEXT */
 
-/* SIDEBAR SELECTBOX FIX */
-
-section[data-testid="stSidebar"] .stSelectbox * {
+.stSelectbox div[data-baseweb="select"] span {
 
     color: #0f172a !important;
+
+    opacity: 1 !important;
+
+    font-size: 16px !important;
+
+    font-weight: 500 !important;
 }
 
+/* INPUT TEXT */
+
+.stSelectbox input {
+
+    color: #0f172a !important;
+
+    opacity: 1 !important;
+
+    font-size: 16px !important;
+}
 
 /* PLACEHOLDER */
 
 .stSelectbox input::placeholder {
 
     color: #64748b !important;
+
+    opacity: 1 !important;
 }
 
-
-/* OPTIONS */
+/* DROPDOWN MENU */
 
 div[role="listbox"] {
 
@@ -658,22 +182,22 @@ div[role="listbox"] {
     border: 1px solid #cbd5e1 !important;
 }
 
-
-/* OPTION ITEMS */
+/* DROPDOWN OPTIONS */
 
 div[role="option"] {
 
+    background: white !important;
+
     color: #0f172a !important;
 
-    background: white !important;
+    opacity: 1 !important;
 
     font-size: 15px !important;
 
     font-weight: 500 !important;
 }
 
-
-/* HOVER */
+/* OPTION HOVER */
 
 div[role="option"]:hover {
 
@@ -682,28 +206,111 @@ div[role="option"]:hover {
     color: #2563eb !important;
 }
 
-
-/* ARROW */
+/* DROPDOWN ARROW */
 
 .stSelectbox svg {
 
     fill: #0f172a !important;
 }
 
+/* HOVER */
 
-/* =====================================================
-SLIDER
-===================================================== */
+.stSelectbox div[data-baseweb="select"]:hover {
+
+    border-color: #38bdf8 !important;
+}
+
+/* SELECTED VALUE */
+
+.stSelectbox span {
+
+    color: #0f172a !important;
+
+    font-size: 17px !important;
+
+    font-weight: 600 !important;
+
+    opacity: 1 !important;
+}
+
+/* INPUT FIELD */
+
+.stSelectbox input {
+
+    color: #0f172a !important;
+
+    font-size: 16px !important;
+
+    font-weight: 500 !important;
+}
+
+/* PLACEHOLDER */
+
+.stSelectbox input::placeholder {
+
+    color: #64748b !important;
+
+    opacity: 1 !important;
+}
+
+/* DROPDOWN MENU */
+
+div[role="listbox"] {
+
+    background: #ffffff !important;
+
+    border-radius: 14px !important;
+
+    border: 1px solid #cbd5e1 !important;
+
+    overflow: hidden;
+}
+
+/* DROPDOWN OPTIONS */
+
+div[role="option"] {
+
+    background: white !important;
+
+    color: #0f172a !important;
+
+    font-size: 16px !important;
+
+    font-weight: 500 !important;
+
+    padding: 12px 16px !important;
+
+    opacity: 1 !important;
+}
+
+/* OPTION HOVER */
+
+div[role="option"]:hover {
+
+    background: #dbeafe !important;
+
+    color: #2563eb !important;
+}
+
+/* SELECTBOX ARROW */
+
+.stSelectbox svg {
+
+    fill: #0f172a !important;
+}
+
+/* =========================================================
+SLIDERS
+========================================================= */
 
 .stSlider * {
 
     color: white !important;
 }
 
-
-/* =====================================================
+/* =========================================================
 BUTTONS
-===================================================== */
+========================================================= */
 
 .stButton > button {
 
@@ -727,12 +334,11 @@ BUTTONS
 
     font-weight: 700 !important;
 
-    transition: all 0.3s ease !important;
+    transition: 0.3s ease;
 
     box-shadow:
-        0 4px 14px rgba(37,99,235,0.35);
+        0 6px 20px rgba(37,99,235,0.35);
 }
-
 
 /* BUTTON HOVER */
 
@@ -740,20 +346,120 @@ BUTTONS
 
     transform: translateY(-2px);
 
-    background: linear-gradient(
-        135deg,
-        #0891b2,
-        #1d4ed8
-    );
-
     box-shadow:
-        0 8px 24px rgba(37,99,235,0.45);
+        0 10px 30px rgba(37,99,235,0.45);
 }
 
+/* =========================================================
+METRIC CARDS
+========================================================= */
 
-/* =====================================================
+div[data-testid="metric-container"] {
+
+    background: linear-gradient(
+        145deg,
+        rgba(15,23,42,0.95),
+        rgba(30,41,59,0.88)
+    ) !important;
+
+    border-radius: 20px !important;
+
+    padding: 22px !important;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.28);
+}
+
+/* METRIC LABEL */
+
+div[data-testid="metric-container"] label {
+
+    color: #94a3b8 !important;
+
+    font-size: 16px !important;
+
+    font-weight: 700 !important;
+}
+
+/* METRIC VALUE */
+
+div[data-testid="metric-container"] [data-testid="stMetricValue"] {
+
+    color: white !important;
+
+    font-size: 46px !important;
+
+    font-weight: 800 !important;
+}
+
+/* =========================================================
+CHART CARDS
+========================================================= */
+
+.chart-card {
+
+    background: rgba(15,23,42,0.75);
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    border-radius: 24px;
+
+    padding: 20px;
+
+    margin-top: 20px;
+
+    backdrop-filter: blur(12px);
+}
+
+/* =========================================================
+RESTAURANT CARDS
+========================================================= */
+
+.restaurant-card {
+
+    background: linear-gradient(
+        145deg,
+        rgba(15,23,42,0.92),
+        rgba(30,41,59,0.88)
+    );
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    border-radius: 24px;
+
+    padding: 18px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.28);
+}
+
+/* =========================================================
+TABS
+========================================================= */
+
+.stTabs [data-baseweb="tab"] {
+
+    color: #cbd5e1 !important;
+
+    font-size: 18px !important;
+
+    font-weight: 600 !important;
+}
+
+/* ACTIVE TAB */
+
+.stTabs [aria-selected="true"] {
+
+    color: #38bdf8 !important;
+}
+
+/* =========================================================
 DATAFRAMES
-===================================================== */
+========================================================= */
 
 [data-testid="stDataFrame"] {
 
@@ -764,54 +470,30 @@ DATAFRAMES
     overflow: hidden;
 }
 
-
-/* TABLE TEXT */
-
 table {
 
     color: #0f172a !important;
 }
 
+/* =========================================================
+ALERTS
+========================================================= */
 
-/* =====================================================
-TABS
-===================================================== */
+.stSuccess,
+.stWarning,
+.stInfo {
 
-.stTabs [data-baseweb="tab"] {
-
-    color: #cbd5e1;
-
-    font-size: 18px;
-
-    font-weight: 600;
+    border-radius: 12px !important;
 }
 
-
-.stTabs [aria-selected="true"] {
-
-    color: #38bdf8 !important;
-}
-
-
-/* =====================================================
-PLOTLY
-===================================================== */
-
-.js-plotly-plot .plotly .main-svg {
-
-    background: transparent !important;
-}
-
-
-/* =====================================================
-ANIMATIONS
-===================================================== */
+/* =========================================================
+ANIMATION
+========================================================= */
 
 .element-container {
 
-    animation: fadeInUp 0.6s ease;
+    animation: fadeInUp 0.5s ease;
 }
-
 
 @keyframes fadeInUp {
 
@@ -819,7 +501,7 @@ ANIMATIONS
 
         opacity: 0;
 
-        transform: translateY(12px);
+        transform: translateY(10px);
     }
 
     to {
@@ -828,38 +510,4 @@ ANIMATIONS
 
         transform: translateY(0px);
     }
-}
-
-
-/* =====================================================
-ALERTS
-===================================================== */
-
-.stSuccess {
-
-    background-color: rgba(16,185,129,0.15) !important;
-
-    color: white !important;
-
-    border-radius: 12px;
-}
-
-
-.stWarning {
-
-    background-color: rgba(245,158,11,0.15) !important;
-
-    color: white !important;
-
-    border-radius: 12px;
-}
-
-
-/* =====================================================
-FOOTER
-===================================================== */
-
-footer {
-
-    visibility: hidden;
 }
